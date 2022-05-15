@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Frogger with Ania Kubow">
+    <title>Frogger</title>
+    
+    <link rel="shortcut icon" href="./images/favicon-32x32.png" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+
+    <!-- font awesome -->
+    <script src="https://kit.fontawesome.com/90e639edc5.js" crossorigin="anonymous"></script>
+    <script src="app2.js" defer></script>
+</head>
+<body>
+    <h1>Frogger</h1>
+    <div>Time left: <span id="time-left">20</span></div>
+    <div>Result: <span id="result"></span></div>
+    <div>Level: <span id="level"></span></div>
+    <button id="play">Play</button>
+    <div class="board">
+        <div class="square"></div>
+        <div class="square"></div>
+        <div class="square"></div>
+        <div class="square"></div>
+        <div class="square"></div>
+        <div class="square"></div>
+        <div class="square finish"></div>
+        <div class="square"></div>
+        <div class="square"></div>
+
+        <div class="square"></div>
+        <div class="square"></div>
+        <div class="square"></div>
+        <div class="square"></div>
+        <div class="square"></div>
+        <div class="square"></div>
+        <div class="square"></div>
+        <div class="square"></div>
+        <div class="square"></div>
+
+        <div class="square river-left log1"></div>
+        <div class="square river-left log2"></div>
+        <div class="square river-left log3"></div>
+        <div class="square river-left log4"></div>
+        <div class="square river-left log5"></div>
+        <div class="square river-left log1"></div>
+        <div class="square river-left log2"></div>
+        <div class="square river-left log3"></div>
+        <div class="square river-left log4"></div>
+
+        <div class="square river-right log5"></div>
+        <div class="square river-right log1"></div>
+        <div class="square river-right log2"></div>
+        <div class="square river-right log3"></div>
+        <div class="square river-right log4"></div>
+        <div class="square river-right log5"></div>
+        <div class="square river-right log1"></div>
+        <div class="square river-right log2"></div>
+        <div class="square river-right log3"></div>
+
+        <div class="square"></div>
+        <div class="square"></div>
+        <div class="square"></div>
+        <div class="square"></div>
+        <div class="square"></div>
+        <div class="square"></div>
+        <div class="square"></div>
+        <div class="square"></div>
+        <div class="square"></div>
+
+        <div class="square road-left car1"></div>
+        <div class="square road-left car2"></div>
+        <div class="square road-left car3"></div>
+        <div class="square road-left car1"></div>
+        <div class="square road-left car2"></div>
+        <div class="square road-left car3"></div>
+        <div class="square road-left car1"></div>
+        <div class="square road-left car2"></div>
+        <div class="square road-left car3"></div>
+
+        <div class="square road-right car1"></div>
+        <div class="square road-right car2"></div>
+        <div class="square road-right car3"></div>
+        <div class="square road-right car1"></div>
+        <div class="square road-right car2"></div>
+        <div class="square road-right car3"></div>
+        <div class="square road-right car1"></div>
+        <div class="square road-right car2"></div>
+        <div class="square road-right car3"></div>
+
+        <div class="square"></div>
+        <div class="square"></div>
+        <div class="square"></div>
+        <div class="square"></div>
+        <div class="square"></div>
+        <div class="square"></div>
+        <div class="square"></div>
+        <div class="square"></div>
+        <div class="square"></div>
+
+        <div class="square"></div>
+        <div class="square"></div>
+        <div class="square start frog"></div>
+        <div class="square"></div>
+        <div class="square"></div>
+        <div class="square"></div>
+        <div class="square"></div>
+        <div class="square"></div>
+        <div class="square"></div>
+    </div>
+
+    <div class="arrows">
+        <button class="arrow-up arrow" id="arrow-up" ><i class="fa-solid fa-circle-up"></i></button>
+        <button class="arrow-left arrow" id="arrow-left"><i class="fa-solid fa-circle-left"></i></button>
+        <button class="arrow-right arrow" id="arrow-right"><i class="fa-solid fa-circle-right"></i></button>
+        <button class="arrow-down arrow" id="arrow-down"><i class="fa-solid fa-circle-down"></i></button>
+    </div>
+    
+</body>
+</html>
