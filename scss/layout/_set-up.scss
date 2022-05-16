@@ -1,0 +1,13 @@
+@use '../abstracts' as *;
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    font-family: var(--ff);
+    font-size: var(--fs-normal);
+    font-weight: var(--fw-semiBold);
+    color: var(--clr-dark-green);
+    background-color: var(--clr-light-green);
+}

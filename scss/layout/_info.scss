@@ -1,0 +1,70 @@
+@use '../abstracts' as *;
+
+.game {
+    position: relative;
+    padding: 2rem 0;
+    max-width: 38rem;
+}
+
+.game__title-play-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.game__title {
+    font-size: var(--fs-title);
+    letter-spacing: 5px;
+}
+
+.game__title--images {
+    position: relative;
+    top: 1.2rem;
+
+    & img:last-child {
+        margin-right: 0.3rem;
+    }
+}
+
+.game__play-button {
+    margin-top: 0.6rem;
+    padding: 0.5rem 2rem;
+    font-family: inherit;
+    font-size: var(--fs-button);
+    font-weight: var(--fw-semiBold);
+    letter-spacing: 3px;
+    color: var(--clr-white);
+    background-color: var(--clr-dark-green);
+    border: 1px solid var(--clr-dark-green);
+    border-radius: 0.5rem;
+    box-shadow: 0 0 1rem var(--clr-bs);
+    transition: scale 300ms linear;
+
+    &:hover,
+    &:focus {
+    transform: scale(1.05);
+    transition: scale 300ms linear;
+    }
+}
+
+.game__result {
+    margin-top: 1.5rem;
+    
+    & > span {
+        color: var(--clr-red);
+    }
+}
+
+.game__time-level-container {
+    display: flex;
+    margin: 1rem 0;
+}
+
+.game__time-left {
+    width: 18rem;
+}
+
+.game__time-left > span,
+.game__level > span {
+    color: var(--clr-red);
+}

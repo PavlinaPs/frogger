@@ -4,119 +4,161 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Frogger with Ania Kubow">
+    <link rel="shortcut icon" href="./images/favicon-32x32.png" type="image/x-icon">
+
     <title>Frogger</title>
     
-    <link rel="shortcut icon" href="./images/favicon-32x32.png" type="image/x-icon">
-    <link rel="stylesheet" href="style.css">
+    <!-- google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kelly+Slab&display=swap" rel="stylesheet">
 
     <!-- font awesome -->
     <script src="https://kit.fontawesome.com/90e639edc5.js" crossorigin="anonymous"></script>
-    <script src="app2.js" defer></script>
+
+    <link rel="stylesheet" href="dist/css/main.css">
+
+    <script src="app.js" defer></script>
 </head>
 <body>
-    <h1>Frogger</h1>
-    <div>Time left: <span id="time-left">20</span></div>
-    <div>Result: <span id="result"></span></div>
-    <div>Level: <span id="level"></span></div>
-    <button id="play">Play</button>
-    <div class="board">
-        <div class="square"></div>
-        <div class="square"></div>
-        <div class="square"></div>
-        <div class="square"></div>
-        <div class="square"></div>
-        <div class="square"></div>
-        <div class="square finish"></div>
-        <div class="square"></div>
-        <div class="square"></div>
+    <main class="game">
 
-        <div class="square"></div>
-        <div class="square"></div>
-        <div class="square"></div>
-        <div class="square"></div>
-        <div class="square"></div>
-        <div class="square"></div>
-        <div class="square"></div>
-        <div class="square"></div>
-        <div class="square"></div>
+        <div class="game__title-play-container">
+            <h1 class="game__title">Fro<span class="game__title--images"><img src="./images/favicon-32x32.png"><img src="./images/favicon-32x32.png"></span>er</h1>
 
-        <div class="square river-left log1"></div>
-        <div class="square river-left log2"></div>
-        <div class="square river-left log3"></div>
-        <div class="square river-left log4"></div>
-        <div class="square river-left log5"></div>
-        <div class="square river-left log1"></div>
-        <div class="square river-left log2"></div>
-        <div class="square river-left log3"></div>
-        <div class="square river-left log4"></div>
+            <button class="game__play-button" id="play">Play</button>
+        </div>
+        
+        <div class="game__result">Result: <span id="result"></span></div>
+        
+        <div class="game__time-level-container">
+            <div class="game__time-left">Time left: <span id="time-left">20</span></div>
+            <div class="game__level">Level: <span id="level"></span></div>
+        </div>
 
-        <div class="square river-right log5"></div>
-        <div class="square river-right log1"></div>
-        <div class="square river-right log2"></div>
-        <div class="square river-right log3"></div>
-        <div class="square river-right log4"></div>
-        <div class="square river-right log5"></div>
-        <div class="square river-right log1"></div>
-        <div class="square river-right log2"></div>
-        <div class="square river-right log3"></div>
+        <div class="game__board">
+            <!-- row 1, squares 0 - 8 // finish -->
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square finish"></div>
+            <div class="square"></div>
+            <div class="square"></div>
 
-        <div class="square"></div>
-        <div class="square"></div>
-        <div class="square"></div>
-        <div class="square"></div>
-        <div class="square"></div>
-        <div class="square"></div>
-        <div class="square"></div>
-        <div class="square"></div>
-        <div class="square"></div>
+            <!-- row 2, squares 9 - 17 -->
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
 
-        <div class="square road-left car1"></div>
-        <div class="square road-left car2"></div>
-        <div class="square road-left car3"></div>
-        <div class="square road-left car1"></div>
-        <div class="square road-left car2"></div>
-        <div class="square road-left car3"></div>
-        <div class="square road-left car1"></div>
-        <div class="square road-left car2"></div>
-        <div class="square road-left car3"></div>
+            <!-- row 3, squares 18 - 26 // logs top row -->
+            <div class="square logs-top log1"></div>
+            <div class="square logs-top log2"></div>
+            <div class="square logs-top log3"></div>
+            <div class="square logs-top log4"></div>
+            <div class="square logs-top log5"></div>
+            <div class="square logs-top log1"></div>
+            <div class="square logs-top log2"></div>
+            <div class="square logs-top log3"></div>
+            <div class="square logs-top log4"></div>
 
-        <div class="square road-right car1"></div>
-        <div class="square road-right car2"></div>
-        <div class="square road-right car3"></div>
-        <div class="square road-right car1"></div>
-        <div class="square road-right car2"></div>
-        <div class="square road-right car3"></div>
-        <div class="square road-right car1"></div>
-        <div class="square road-right car2"></div>
-        <div class="square road-right car3"></div>
+            <!-- row 4, squares 27 - 35 // logs bottom row -->
+            <div class="square logs-bottom log5"></div>
+            <div class="square logs-bottom log1"></div>
+            <div class="square logs-bottom log2"></div>
+            <div class="square logs-bottom log3"></div>
+            <div class="square logs-bottom log4"></div>
+            <div class="square logs-bottom log5"></div>
+            <div class="square logs-bottom log1"></div>
+            <div class="square logs-bottom log2"></div>
+            <div class="square logs-bottom log3"></div>
 
-        <div class="square"></div>
-        <div class="square"></div>
-        <div class="square"></div>
-        <div class="square"></div>
-        <div class="square"></div>
-        <div class="square"></div>
-        <div class="square"></div>
-        <div class="square"></div>
-        <div class="square"></div>
+            <!-- row 5, squares 36 - 44 -->
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
 
-        <div class="square"></div>
-        <div class="square"></div>
-        <div class="square start frog"></div>
-        <div class="square"></div>
-        <div class="square"></div>
-        <div class="square"></div>
-        <div class="square"></div>
-        <div class="square"></div>
-        <div class="square"></div>
-    </div>
+            <!-- row 6, squares 45 - 53 // cars going left -->
+            <div class="square cars-left car1"></div>
+            <div class="square cars-left car2"></div>
+            <div class="square cars-left car3"></div>
+            <div class="square cars-left car1"></div>
+            <div class="square cars-left car2"></div>
+            <div class="square cars-left car3"></div>
+            <div class="square cars-left car1"></div>
+            <div class="square cars-left car2"></div>
+            <div class="square cars-left car3"></div>
 
-    <div class="arrows">
-        <button class="arrow-up arrow" id="arrow-up" ><i class="fa-solid fa-circle-up"></i></button>
-        <button class="arrow-left arrow" id="arrow-left"><i class="fa-solid fa-circle-left"></i></button>
-        <button class="arrow-right arrow" id="arrow-right"><i class="fa-solid fa-circle-right"></i></button>
-        <button class="arrow-down arrow" id="arrow-down"><i class="fa-solid fa-circle-down"></i></button>
-    </div>
-    
+            <!-- row 7, squares 54 - 62 // cars going left -->
+            <div class="square cars-right car1"></div>
+            <div class="square cars-right car2"></div>
+            <div class="square cars-right car3"></div>
+            <div class="square cars-right car1"></div>
+            <div class="square cars-right car2"></div>
+            <div class="square cars-right car3"></div>
+            <div class="square cars-right car1"></div>
+            <div class="square cars-right car2"></div>
+            <div class="square cars-right car3"></div>
+
+            <!-- row 8, squares 63 - 71 -->
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+
+            <!-- row 9, squares 72 - 80 // start -->
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square start frog"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+        </div>
+
+        <!-- arrow controls -->
+        <div class="game__arrow-controls">
+            <button class="game__arrow-up arrow" id="arrow-up">
+                <i class="fa-solid fa-circle-up"></i>
+            </button>
+            <button class="game__arrow-left arrow" id="arrow-left">
+                <i class="fa-solid fa-circle-left"></i>
+            </button>
+            <button class="game__arrow-right arrow" id="arrow-right">
+                <i class="fa-solid fa-circle-right"></i>
+            </button>
+            <button class="game__arrow-down arrow" id="arrow-down">
+                <i class="fa-solid fa-circle-down"></i>
+            </button>
+        </div>
+
+        <!-- sound controls -->
+        <div id="sound" class="game__sound-controls">
+            <i class="fa-solid fa-volume-low sound-on"></i>
+            <i class="fa-solid fa-volume-xmark sound-off"></i>
+        </div>
+
+    </main>
 </body>
 </html>

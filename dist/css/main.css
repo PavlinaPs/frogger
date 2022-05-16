@@ -1,0 +1,206 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+:root {
+  --ff: "Kelly Slab", cursive;
+  --fs-normal: 1.8rem;
+  --fs-title: 3.5rem;
+  --fs-button: 2.5rem;
+  --fw-semiBold: 600;
+  --clr-dark-green: #073D0B;
+  --clr-light-green: hsl(87, 56%, 77%);
+  --clr-white: white;
+  --clr-red: #d31c00;
+  --clr-log-brown: #bd6d50;
+  --clr-bs: hsla(124, 79%, 13%, 0.8);
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  font-family: var(--ff);
+  font-size: var(--fs-normal);
+  font-weight: var(--fw-semiBold);
+  color: var(--clr-dark-green);
+  background-color: var(--clr-light-green);
+}
+
+.game {
+  position: relative;
+  padding: 2rem 0;
+  max-width: 38rem;
+}
+
+.game__title-play-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.game__title {
+  font-size: var(--fs-title);
+  letter-spacing: 5px;
+}
+
+.game__title--images {
+  position: relative;
+  top: 1.2rem;
+}
+.game__title--images img:last-child {
+  margin-right: 0.3rem;
+}
+
+.game__play-button {
+  margin-top: 0.6rem;
+  padding: 0.5rem 2rem;
+  font-family: inherit;
+  font-size: var(--fs-button);
+  font-weight: var(--fw-semiBold);
+  letter-spacing: 3px;
+  color: var(--clr-white);
+  background-color: var(--clr-dark-green);
+  border: 1px solid var(--clr-dark-green);
+  border-radius: 0.5rem;
+  box-shadow: 0 0 1rem var(--clr-bs);
+  transition: scale 300ms linear;
+}
+.game__play-button:hover, .game__play-button:focus {
+  transform: scale(1.05);
+  transition: scale 300ms linear;
+}
+
+.game__result {
+  margin-top: 1.5rem;
+}
+.game__result > span {
+  color: var(--clr-red);
+}
+
+.game__time-level-container {
+  display: flex;
+  margin: 1rem 0;
+}
+
+.game__time-left {
+  width: 18rem;
+}
+
+.game__time-left > span,
+.game__level > span {
+  color: var(--clr-red);
+}
+
+.game__board {
+  display: flex;
+  flex-wrap: wrap;
+  width: 360px;
+  height: 360px;
+  margin: 0 auto;
+  background-image: url(../../images/bg3.jpg);
+  border: 1px solid var(--clr-dark-green);
+  border-radius: 0.5rem;
+  box-shadow: 0 0 1.5rem var(--clr-bs);
+}
+
+.square {
+  width: 40px;
+  height: 40px;
+}
+
+/* logs */
+.log1,
+.log2,
+.log3 {
+  background-color: var(--clr-log-brown);
+  position: relative;
+  background-image: url(../../images/log40x40-2.jpg);
+}
+
+.car1 {
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.car1.cars-left {
+  background-image: url(../../images/red-car40x40-3.png);
+}
+
+.car1.cars-right {
+  background-image: url(../../images/white-truck40x40-2.png);
+}
+
+.frog {
+  background-image: url(../../images/frog10.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 100%;
+  z-index: 100;
+}
+
+.game__arrow-controls {
+  width: 9.6rem;
+  margin: 1rem auto 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-areas: ". up ." "left up right" "left down right" ". down .";
+  gap: 0.5rem;
+}
+.game__arrow-controls > button {
+  width: 3.5rem;
+  height: 3.5rem;
+  background-color: var(--clr-white);
+  border: 1px solid var(--clr-dark-green);
+  border-radius: 0.5rem;
+}
+.game__arrow-controls > button > i {
+  color: var(--clr-dark-green);
+  font-size: var(--fs-button);
+  pointer-events: none;
+}
+
+.game__arrow-up {
+  grid-area: up;
+}
+
+.game__arrow-left {
+  grid-area: left;
+}
+
+.game__arrow-right {
+  grid-area: right;
+}
+
+.game__arrow-down {
+  grid-area: down;
+}
+
+.game__sound-controls {
+  position: absolute;
+  width: 3rem;
+  height: 2.5rem;
+  bottom: 4.4rem;
+  right: 0;
+}
+
+.game__sound-controls.off .sound-off {
+  display: block;
+}
+
+.game__sound-controls.off .sound-on {
+  display: none;
+}
+
+.sound-off {
+  display: none;
+  padding-top: 0.1rem;
+}/*# sourceMappingURL=main.css.map */

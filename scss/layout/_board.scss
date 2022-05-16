@@ -1,0 +1,49 @@
+@use '../abstracts' as *;
+
+.game__board {
+    display: flex;
+    flex-wrap: wrap;
+    width: 360px;
+    height: 360px;
+    margin: 0 auto;
+    background-image: url(../../images/bg3.jpg);
+    border: 1px solid var(--clr-dark-green);
+    border-radius: 0.5rem;
+    box-shadow: 0 0 1.5rem var(--clr-bs);
+}
+
+.square {
+    width: 40px;
+    height: 40px;
+}
+
+/* logs */
+.log1,
+.log2,
+.log3 {
+    background-color: var(--clr-log-brown);
+    position: relative;
+    background-image: url(../../images/log40x40-2.jpg);
+
+}
+
+.car1 {
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.car1.cars-left {
+    background-image: url(../../images/red-car40x40-3.png);
+}
+
+.car1.cars-right {
+    background-image: url(../../images/white-truck40x40-2.png);
+}
+
+.frog {
+    background-image: url(../../images/frog10.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100%;
+    z-index: 100;
+}

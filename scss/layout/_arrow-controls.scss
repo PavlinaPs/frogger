@@ -1,0 +1,44 @@
+@use '../abstracts' as *;
+
+.game__arrow-controls {
+    width: 9.6rem;
+    margin: 1rem auto 0;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-areas: 
+        '. up .'
+        'left up right'
+        'left down right'
+        '. down .';
+    gap: 0.5rem;
+    
+    & > button {
+        width: 3.5rem;
+        height: 3.5rem;
+        background-color: var(--clr-white);
+        border: 1px solid var(--clr-dark-green);
+        border-radius: 0.5rem;
+        
+        & > i {
+            color:var(--clr-dark-green);
+            font-size: var(--fs-button);
+            pointer-events: none;
+        }
+    }
+}
+
+.game__arrow-up {
+    grid-area: up;
+}
+
+.game__arrow-left {
+    grid-area: left;
+}
+
+.game__arrow-right {
+    grid-area: right;
+}
+
+.game__arrow-down {
+    grid-area: down;
+}

@@ -1,14 +1,21 @@
-const board = document.querySelector('.board');
+// sounds
+const loseSound = new Audio('./sounds/mixkit-falling-into-mud-surface-385.wav');
+const levelUpSound = new Audio('./sounds/mixkit-game-success-alert-2039.wav');
+const winSound = new Audio('./sounds/mixkit-ethereal-fairy-win-sound-2019.wav');
+const timeOutSound = new Audio('./sounds/mixkit-fast-wall-clock-ticking-1063.wav')
+
+
 const squares = document.querySelectorAll('.square');
 const timeLeftDisplay = document.getElementById('time-left');
 const resultDisplay = document.getElementById('result');
 const levelDisplay = document.getElementById('level');
 const playButton = document.getElementById('play');
+const logsTop = document.querySelectorAll('.logs-top');
+const logsBottom = document.querySelectorAll('.logs-bottom');
+const carsLeft = document.querySelectorAll('.cars-left');
+const carsRight = document.querySelectorAll('.cars-right');
 const arrows = Array.from(document.querySelectorAll('.arrow'));
-const logsTop = document.querySelectorAll('.river-left');
-const logsBottom = document.querySelectorAll('.river-right');
-const carsLeft = document.querySelectorAll('.road-left');
-const carsRight = document.querySelectorAll('.road-right');
+const sound = document.getElementById('sound');
 
 let width = 9;
 let lockBoard = false;
@@ -168,7 +175,7 @@ function lose() {
         // or gets hit by a car
         squares[currentIndex].classList.contains('car1')
         ) {
-
+        loseSound.play();
         resultDisplay.textContent = 'Oops!';
         cleanUp();
         squares[currentIndex].classList.remove('frog');      
@@ -180,6 +187,7 @@ function win() {
         
         cleanUp();
         currentLevel++;
+        levelUpSound.play();
         
         if(currentLevel <= maxLevel) {
 
@@ -205,6 +213,7 @@ function win() {
 
         } else {
             resultDisplay.textContent = 'You are the absolute winner!';
+            winSound.play();
             cleanUp();
         }
     }
@@ -221,6 +230,7 @@ function timeLeft() {
     timeLeftDisplay.textContent = currentTime;
     if(currentTime === 0) {
         result.textContent = 'Too late!'
+        timeOutSound.play();
         cleanUp();
     }
 }
@@ -232,7 +242,7 @@ function cleanUp() {
     clearInterval(timerIdCarsLeft);
     clearInterval(timerIdCarsRight);
     clearInterval(timerIdTime);
-    document.removeEventListener('keydown', moveFrog);
+    document.removeEventListener('keyup', moveFrog);
     arrows.forEach(arrow => arrow.removeEventListener('click', moveFrog));
     lockBoard = false;
 }
@@ -260,7 +270,7 @@ function playGame() {
         currentIndex = startIndex;
         squares[currentIndex].classList.add('frog');
 
-        document.addEventListener('keydown', moveFrog);
+        document.addEventListener('keyup', moveFrog);
         arrows.forEach(arrow => arrow.addEventListener('click', moveFrog));
 
         // start timers
@@ -275,3 +285,20 @@ function playGame() {
 }
 
 playButton.addEventListener('click', playGame);
+
+sound.addEventListener('click', soundToggle);
+
+function soundToggle() {
+    const soundOff = sound.classList.toggle('off');
+    if(soundOff) {
+        loseSound.muted = true;
+        levelUpSound.muted = true;
+        winSound.muted = true;
+        timeOutSound.muted = true;
+    } else {
+        loseSound.muted = false;
+        levelUpSound.muted = false;
+        winSound.muted = false;
+        timeOutSound.muted = false;
+    }
+}
